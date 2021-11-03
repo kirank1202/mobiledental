@@ -1,25 +1,99 @@
-import logo from './logo.svg';
-import './App.css';
+mport React, { useState, useEffect } from "react";
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import "./App.css";
+import { Auth } from "aws-amplify";
+import {
+  withAuthenticator,
+  AmplifySignOut,
+  AmplifyAuthFields,
+} from "@aws-amplify/ui-react";
+
+
 
 function App() {
+  const [userType, setUserType] = useState("");
+
+  let currentUserGroup = ``;
+
+  useEffect(() => {
+    async function fetchCurrentUserGroup() {
+      Auth.currentAuthenticatedUser().then((authuser) => {
+        console.log("AuthUser: ",authuser);
+        currentUserGroup =
+          authuser.signInUserSession.idToken.payload["cognito:groups"][0];
+        setUserType(currentUserGroup);
+        console.log(
+          currentUserGroup,
+          "this is the currentuser in useEffect",
+          currentUserGroup.length
+        );
+      });
+    }
+
+    fetchCurrentUserGroup();
+    console.log(
+      currentUserGroup,
+      "this is the currentuser after fetchuserGroup method",
+      { fetchCurrentUserGroup }.length
+    );
+  }, []);
+
+  async function fetchCurrentUserGroup() {
+    Auth.currentAuthenticatedUser().then((authuser) => {
+     
+      currentUserGroup =
+        authuser.signInUserSession.idToken.payload["cognito:groups"][0];
+      console.log(
+        currentUserGroup,
+        "this is the currentuser in fetchFunction",
+        currentUserGroup.length
+      );
+      return currentUserGroup;
+    });
+  }
+
+  Auth.currentAuthenticatedUser().then((authuser) => {
+    currentUserGroup =
+      authuser.signInUserSession.idToken.payload["cognito:groups"][0];
+    console.log(
+      currentUserGroup,
+      "this is the currentuser rightafter fetching it",
+      currentUserGroup.length
+    );
+  });
+
+  console.log(
+    currentUserGroup,
+    "this is the currentuser before return",
+    currentUserGroup.length
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+          <Route path="/leadHome" component={LeadApp} />
+          <Route path="/ownerHome" component={OwnerApp} />
+          <Route path="/defaultHome" component={DefaultHomeApp} />
+
+          
+          {fetchCurrentUserGroup}
+          {
+            userType === "Lead" ? (
+              <Redirect to="/leadHome" />
+            ) : ( 
+                  userType == "BizOnwer" ? (
+                    <Redirect to="/ownerHome" />
+                  ) 
+                  
+                  : ( <Redirect to="/defaultHome" /> )
+                      )
+                
+          }
+          <AmplifySignOut />
+      </Router>
     </div>
   );
 }
-
-export default App;
+export default withAuthenticator(App);
+//export default App;
