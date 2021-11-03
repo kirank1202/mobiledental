@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mobiledental-dev-22515-authRole",
+      "UnauthRoleArn": "arn:aws:iam::699887736378:role/amplify-mobiledental-dev-22515-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::699887736378:role/amplify-mobiledental-dev-22515-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-mobiledental-dev-22515-deployment",
+      "UnauthRoleName": "amplify-mobiledental-dev-22515-unauthRole",
+      "StackName": "amplify-mobiledental-dev-22515",
+      "StackId": "arn:aws:cloudformation:us-east-1:699887736378:stack/amplify-mobiledental-dev-22515/32624ac0-3c77-11ec-8dfe-0e74639c8c25",
+      "AmplifyAppId": "d59wpcentxxr4"
+    },
+    "categories": {
+      "auth": {
+        "mobiledental5fae1eaa": {}
+      }
+    }
+  }
+}

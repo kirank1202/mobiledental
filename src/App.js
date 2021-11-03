@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import "./App.css";
 import logo from './logo.svg';
-/*
-import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+
+// import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+// import { makeStyles } from "@material-ui/core/styles";
 import { Auth } from "aws-amplify";
 import {
   withAuthenticator,
@@ -12,7 +12,7 @@ import {
   AmplifyAuthFields,
 } from "@aws-amplify/ui-react";
 
-*/
+
 
 /*
 function App() {
@@ -81,10 +81,13 @@ function App()
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Hello from V2</h1>
         </header>
+        <AmplifySignOut />
       </div>
     );
     }
-    export default App;
+    export default withAuthenticator(App);
+
+//    export default App;
     /*
     <div className="App">
       <Router>
