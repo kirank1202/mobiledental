@@ -1,7 +1,10 @@
-mport React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
+import "./App.css";
+import logo from './logo.svg';
+/*
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import "./App.css";
 import { Auth } from "aws-amplify";
 import {
   withAuthenticator,
@@ -9,8 +12,9 @@ import {
   AmplifyAuthFields,
 } from "@aws-amplify/ui-react";
 
+*/
 
-
+/*
 function App() {
   const [userType, setUserType] = useState("");
 
@@ -68,8 +72,20 @@ function App() {
     "this is the currentuser before return",
     currentUserGroup.length
   );
-
+*/
+function App()
+{
   return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1>Hello from V2</h1>
+        </header>
+      </div>
+    );
+    }
+    export default App;
+    /*
     <div className="App">
       <Router>
           <Route path="/leadHome" component={LeadApp} />
@@ -93,7 +109,10 @@ function App() {
           <AmplifySignOut />
       </Router>
     </div>
-  );
+   
+  ); 
+  
 }
 export default withAuthenticator(App);
-//export default App;
+*/
+
