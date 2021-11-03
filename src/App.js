@@ -79,15 +79,14 @@ function App()
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>Hello from V2</h1>
+          <h1>Welcome To The World of Mobile Dentistry</h1>
         </header>
-        <AmplifySignOut />
       </div>
     );
     }
-    export default withAuthenticator(App);
+ //   export default withAuthenticator(App);
 
-//    export default App;
+   export default App;
     /*
     <div className="App">
       <Router>
