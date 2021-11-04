@@ -5,14 +5,14 @@ import logo from './logo.svg';
 
 // import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 // import { makeStyles } from "@material-ui/core/styles";
-import { Auth } from "aws-amplify";
-import {
+// import { Auth } from "aws-amplify";
+/* import {
   withAuthenticator,
   AmplifySignOut,
   AmplifyAuthFields,
 } from "@aws-amplify/ui-react";
 
-
+*/
 
 /*
 function App() {
